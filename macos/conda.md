@@ -131,9 +131,9 @@ conda update -n docdev sphinx
 ```
     
 - Удалить пакет _sphinx_ из активной среды:
-    
-    `conda remove sphinx`
-    
+```
+conda remove sphinx
+```
 
 Более подробную информацию см. в [документации conda](https://docs.conda.io/projects/conda/en/latest/commands.html).
 
@@ -159,14 +159,13 @@ conda install jupyterlab
 1. **Очищаем конфигурации** при помощи `anaconda-clean`:
     
     ```
-    conda install anaconda-clean && anaconda-clean --yes  # Очищаем настройки!
+    conda install anaconda-clean && anaconda-clean --yes
     ```
     
 2. **Удаляем** корневую папку Anaconda (для Unix-подобных систем это `~/anaconda3`, а для Windows — `C:\Users\<Имя пользователя>\Anaconda3`):
     
     ```
-    rm -rf ~/anaconda3  # Для Unix-подобных систем
-    rmdir /S /Q C:\Users\<Имя пользователя>\Anaconda3  # Для Windows
+    rm -rf ~/anaconda3
     ```
     
 3. **Обновляем переменную** PATH в вашей системе, чтобы избавиться от ссылок на папки Anaconda.
