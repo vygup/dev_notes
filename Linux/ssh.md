@@ -1,39 +1,59 @@
 На клиенте, из которого будет подключение к серверу, создаем ключ 
-    ssh-keygen -t rsa
+```bash
+ssh-keygen -t rsa
+```
 
 Если уже имеется, то передаем на сервер
-    ssh-copy-id remote_host
+```bash
+ssh-copy-id remote_host
+```
 
+Запускаем `ssh`
+```bash
+sudo systemctl start sshd
+```
 
-Запускаем ssh
-    sudo systemctl start sshd
-
-Если возникнет ошибка Unit sshd.service not found
-    systemctl -l
-проверить наличие сервиса, может называется иначе, если нет, то установить
+Если возникнет ошибка `Unit sshd.service not found`
+```bash
+systemctl -l
+```
+    проверить наличие сервиса, может называется иначе, если нет, то установить
+    
     sudo apt install openssh-server
 
 перед изменением конфигурационного файла, сделаем бэкап
-    sudo cp /etc/ssh/sshd_config{,.bak}
+```bash
+sudo cp /etc/ssh/sshd_config{,.bak}
+```
 
 Редактирукем 
-    sudo nano /etc/ssh/sshd_config
-Дальше что именно нужно, поменять порт, хост, доступ по паролю, по ключу ссш итд
+```bash
+sudo nano /etc/ssh/sshd_config
+```
 
-Отключить вход с помощью пользователя с правами root. (Если есть др пользователь с правами)
-    PermitRootLogin no
+    Дальше что именно нужно, поменять порт, хост, доступ по паролю, по ключу ссш итд
 
-Позволяит предотвратить попытки входа в систему, когда файлы конфигурации не находятся в безопасном состоянии.
-    strictModes yes
+    Отключить вход с помощью пользователя с правами root. (Если есть др пользователь с правами)
+
+        PermitRootLogin no
+
+    Позволяит предотвратить попытки входа в систему, когда файлы конфигурации не находятся в безопасном состоянии.
+
+        strictModes yes
 
 После внесенных изменений перезапускаем сервис
-    sudo systemctl reload sshd
-    sudo systemctl restart sshd
+```bash
+sudo systemctl reload sshd
+```
+```bash
+sudo systemctl restart sshd
+```
 
-Далее настроим авторизацию по ssh
+Далее настроим авторизацию по `ssh`
 
-ssh-add - добавляет RSA- или DSA-идентификацию для агента аутентификации 
-ssh-add -D - удалить все идентификаторы агент
+`ssh-add` - добавляет `RSA` или `DSA`-идентификацию для агента аутентификации 
+
+`ssh-add -D` - удалить все идентификаторы агент
 
 
 

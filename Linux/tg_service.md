@@ -1,5 +1,10 @@
-/lib/systemd/system/tg_bot_aspire.service
+# Установка сервиса для бесперебойной работы telegram бота в linux
 
+```bash
+vim /lib/systemd/system/tg_bot_aspire.service
+```
+
+```text
 [Unit]
 Description=tg aspire
 After=network.target
@@ -15,12 +20,18 @@ RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
+```
 
 
-
+```bash
 systemctl status tg_bot_aspire.service
+```
 
+```bash
 systemctl daemon-reload
+```
 
+```bash
 sudo systemctl restart tg_bot_aspire.service
 systemctl status tg_bot_aspire.service
+```

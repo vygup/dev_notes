@@ -1,20 +1,35 @@
 чтобы отобразить tcp и udp одновременно 
-    ss -lntu
+```bash
+ss -lntu
+```
 
 проверка прослушиваемых портов 
-    ss -tl
+```bash
+ss -tl
+```
 
 проверка, используется ли порт
-    ss -na | grep :4000
+```bash
+ss -na | grep :4000
+```
 
 вывести все соединения между сокетами
-    ss
+```bash
+ss
+```
 
+Установка `ufw`
+```bash
 sudo apt install ufw
 sudo ufw enable
+```
 
 Открытие порта
+```bash
 sudo ufw allow 4000
+```
 
 Отключить и сбросить настройки UFW
+```bash
 sudo ufw disable
+```
