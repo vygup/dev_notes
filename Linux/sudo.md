@@ -16,6 +16,11 @@ su root
 
 Редактируем файл `sudoers`
 
+Или команда
+```bash
+visudo
+```
+
 В `User privelege` прописываем 
 ```bash
 user_name ALL=(ALL:ALL) ALL
